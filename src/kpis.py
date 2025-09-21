@@ -6,20 +6,30 @@ def total_flights(df: pd.DataFrame) -> int:
 
 
 def percentage_delayed(df: pd.DataFrame) -> float:
+    if df.empty:
+        return 0.0
     return (df['Dep_Delay'] > 0).mean() * 100
 
 
 def avg_departure_delay(df: pd.DataFrame) -> float:
+    if df.empty:
+        return 0.0
     return df['Dep_Delay'].mean()
 
 
 def avg_arrival_delay(df: pd.DataFrame) -> float:
+    if df.empty:
+        return 0.0
     return df['Arr_Delay'].mean()
 
 
 def longest_delay(df: pd.DataFrame) -> int:
+    if df.empty:
+        return 0
     return df['Dep_Delay'].max()
 
 
 def shortest_delay(df: pd.DataFrame) -> int:
+    if df.empty:
+        return 0
     return df['Dep_Delay'].min()
